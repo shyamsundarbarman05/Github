@@ -1,22 +1,20 @@
 #include <iostream>
 using namespace std;
-class TowerOfHanoi
-{
-public:
-    void solve(int n, char from, char to, char aux)
-    {
-        if (n == 0)
-            return;
-        solve(n - 1, from, aux, to);
-        cout << "Move disk " << n << " from " << from << " to " << to << endl;
-        solve(n - 1, aux, to, from);
+
+int fibonacci(int n) {
+    if (n <= 1)
+        return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int num;
+    cout << "Enter the number of terms: ";
+    cin >> num;
+
+    for (int i = 0; i < num; i++) {
+        cout << fibonacci(i) << " ";
     }
-};
-int main()
-{
-    int n;
-    cout << "Enter the number of disks: ";
-    cin >> n;
-    TowerOfHanoi hanoi;
-    hanoi.solve(n, 'A', 'C', 'B');
+
+    return 0;
 }
