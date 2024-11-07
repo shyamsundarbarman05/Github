@@ -1,47 +1,20 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
-// Function to generate Pascal's triangle
-vector<vector<int>> generatePascalsTriangle(int numRows)
-{
-    vector<vector<int>> triangle(numRows);
-    for (int i = 0; i < numRows; ++i)
-    {
-        triangle[i].resize(i + 1);
-        triangle[i][0] = triangle[i][i] = 1;
-        for (int j = 1; j <= i; ++j)
-        {
-            triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
-        }
-    }
-    // Initialize each element of the triangle vector to 0
-    for (int i = 0; i < numRows; ++i)
-    {
-        for (int j = 0; j <= i; ++j)
-        {
-            triangle[i][j] = 0;
-        }
-    }
-    return triangle;
-}
-// Function to print Pascal's triangle in reverse order
-void printReversedPascalsTriangle(const vector<vector<int>> &triangle)
-{
-    for (int i = triangle.size() - 1; i >= 0; --i)
-    {
-        for (int j = 0; j < triangle[i].size(); ++j)
-        {
-            cout << triangle[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
 int main()
 {
-    int numRows;
-    cout << "Enter the number of rows for Pascal's triangle: ";
-    cin >> numRows;
-    vector<vector<int>> triangle = generatePascalsTriangle(numRows);
-    printReversedPascalsTriangle(triangle);
+    int feet1, feet2, inches1, inches2;
+    cout << "Enter the first distance in feet: ";
+    cin >> feet1;
+    cout << "Enter the first distance in inches: ";
+    cin >> inches1;
+    cout << "Enter the second distance in feet: ";
+    cin >> feet2;
+    cout << "Enter the second distance in inches: ";
+    cin >> inches2;
+    int totalFeet = feet1 + feet2;
+    int totalInches = inches1 + inches2;
+    totalFeet += totalInches / 12;
+    totalInches %= 12;
+    cout << "Total distance: " << totalFeet << " feet " << totalInches << " inches" << endl;
     return 0;
 }
