@@ -1,23 +1,40 @@
 #include <iostream>
+#include <cmath> // For M_PI constant
+
 using namespace std;
-int main()
-{
-    string str1, str2;
-    cout << "Enter the first string: ";
-    getline(cin, str1);
-    cout << "Enter the second string: ";
-    getline(cin, str2);
-    string str3 = str1;
-    cout << "Copied string: " << str3 << endl;
-    str3 += str2;
-    cout << "Concatenated string: " <<  str3 << endl;
-    if (str1 == str2)
-    {
-        cout << "The strings are equal." << endl;
+
+class Shape {
+public:
+    // Function to calculate the area of a triangle
+    double area(double base, double height) {
+        return 0.5 * base * height;
     }
-    else
-    {
-        cout << "The strings are not equal." << endl;
+
+    // Function to calculate the area of a rectangle
+    double area(double length, int width) {
+        return length * width;
     }
+
+    // Function to calculate the area of a circle
+    double area(double radius) {
+        return M_PI * radius * radius;
+    }
+};
+
+int main() {
+    Shape shape;
+
+    // Calculate area of a triangle
+    double triangleArea = shape.area(10, 5);
+    cout << "Area of triangle: " << triangleArea << endl;
+
+    // Calculate area of a rectangle
+    double rectangleArea = shape.area(10.0, 5.0);
+    cout << "Area of rectangle: " << rectangleArea << endl;
+
+    // Calculate area of a circle
+    double circleArea = shape.area(5.0);
+    cout << "Area of circle: " << circleArea << endl;
+
     return 0;
 }
